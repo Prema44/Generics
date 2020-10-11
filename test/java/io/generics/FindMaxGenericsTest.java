@@ -60,6 +60,31 @@ class FindMaxGenericsTest {
 		Float third = 10.3f;
 		assertEquals(third, findMaxGenerics.maxNumFloat(first, second, third));
 	}
+	
+	@Test
+	public void givenFirstStringValueShouldReturnTrue() {
+		
+		String actual = findMaxGenerics.findMaximum("Peach", "Apple", "Banana");
+		String expected = "Peach";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void givenSecondStringValueShouldReturnTrue() {
+		
+		String actual = findMaxGenerics.findMaximum("Apple", "Peach", "Banana");
+		String expected = "Peach";
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void givenThirdStringValueShouldReturnTrue() {
+		
+		String actual = findMaxGenerics.findMaximum("Banana", "Apple", "Peach");
+		String expected = "Peach";
+		assertEquals(expected, actual);
+	}
+
 }	
 
 	

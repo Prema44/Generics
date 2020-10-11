@@ -18,6 +18,7 @@ public class FindMaxGenerics {
 			else return third;
 		}		
 		
+		
 		/**
 		 * UC 2 Given 3 Floats find the maximum
 		 * @param first
@@ -31,6 +32,26 @@ public class FindMaxGenerics {
 			else if(second.compareTo(first) > 0 && second.compareTo(third) > 0)
 				return second;
 			else return third;
+		}
+		
+		/**
+		 * Usecase3
+		 * 
+		 * @param a
+		 * @param b
+		 * @param c
+		 * @return
+		 */
+		public String findMaximum(String a, String b, String c) {
+			String max;
+			if (a.compareTo(b) >= 0 && a.compareTo(c) >= 0) {
+				max = a;
+			} else if (b.compareTo(c) >= 0 && b.compareTo(a) >= 0) {
+				max = b;
+			} else {
+				max = c;
+			}
+			return max;
 		}
 }
 	
