@@ -1,19 +1,20 @@
 package io.generics;
 
-public class FindMaxGenerics<x extends Comparable<x>> {
-	x first, second, third;
+import java.util.Arrays;
 
+public class FindMaxGenerics<x extends Comparable<x>> {
+	private x[] arguments;
+	
 	/**
 	 * Constructor
-	 * 
+	 * refactored to take multiple inputs
 	 * @param first
 	 * @param second
 	 * @param third
 	 */
-	public FindMaxGenerics(x first, x second, x third) {
-		this.first = first;
-		this.second = second;
-		this.third = third;
+	@SafeVarargs
+	public FindMaxGenerics(x ...arguments) {
+		this.arguments = arguments;
 	}
 
 	/**
@@ -22,7 +23,8 @@ public class FindMaxGenerics<x extends Comparable<x>> {
 	 * @return
 	 */
 	public x testMaximum() {
-		return testMaximum(first, second, third);
+		x testMaximum = testMaximum(arguments);
+		return testMaximum;
 	}
 
 	/**
@@ -34,13 +36,10 @@ public class FindMaxGenerics<x extends Comparable<x>> {
 	 * @param third
 	 * @return
 	 */
-	private static <E extends Comparable<E>> E testMaximum(E firstVar, E secondVar, E thirdVar) {
-		if (firstVar.compareTo(secondVar) > 0 && firstVar.compareTo(thirdVar) > 0)
-			return firstVar;
-		else if (secondVar.compareTo(firstVar) > 0 && secondVar.compareTo(thirdVar) > 0)
-			return secondVar;
-		else
-			return thirdVar;
+	@SafeVarargs
+	private static <E extends Comparable<E>> E testMaximum(E ...variables) {
+		Arrays.sort(variables);
+		return variables[variables.length - 1];
 	}
 }
 	
