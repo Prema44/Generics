@@ -16,7 +16,7 @@ public class FindMaxGenerics {
 			else if(second.compareTo(first) > 0 && second.compareTo(third) > 0)
 				return second;
 			else return third;
-		}		
+		}	
 		
 		
 		/**
@@ -44,6 +44,19 @@ public class FindMaxGenerics {
 		 */
 		public String findMaximum(String a, String b, String c) {
 			String max;
+			if (a.compareTo(b) >= 0 && a.compareTo(c) >= 0) {
+				max = a;
+			} else if (b.compareTo(c) >= 0 && b.compareTo(a) >= 0) {
+				max = b;
+			} else {
+				max = c;
+			}
+			return max;
+		} 
+		
+		public < E extends Comparable  <E> > E findMax (E a, E b, E c)
+		{
+			E max;
 			if (a.compareTo(b) >= 0 && a.compareTo(c) >= 0) {
 				max = a;
 			} else if (b.compareTo(c) >= 0 && b.compareTo(a) >= 0) {

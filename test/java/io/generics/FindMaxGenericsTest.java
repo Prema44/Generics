@@ -18,15 +18,15 @@ class FindMaxGenericsTest {
 		Integer first = 9;
 		Integer second = 5;
 		Integer third = 7;
-		assertEquals(first, findMaxGenerics.maxNumInt(first, second, third));
+		assertEquals(first, findMaxGenerics.findMax(first, second, third));
 	}
 	
 	@Test
-	public void second() {
+	public void secondFirstMax_shouldReturn_second() {
 		Integer first = 9;
 		Integer second = 10;
 		Integer third = 7;
-		assertEquals(second, findMaxGenerics.maxNumInt(first, second, third));
+		assertEquals(second, findMaxGenerics.findMax(first, second, third));
 	}
 	
 	@Test
@@ -34,7 +34,7 @@ class FindMaxGenericsTest {
 		Integer first = 9;
 		Integer second = 5;
 		Integer third = 10;
-		assertEquals(third, findMaxGenerics.maxNumInt(first, second, third));
+		assertEquals(third, findMaxGenerics.findMax(first, second, third));
 	}
 	
 	@Test
@@ -42,7 +42,7 @@ class FindMaxGenericsTest {
 		Float first = 9.5f;
 		Float second = 5.4f;
 		Float third = 7.1f;
-		assertEquals(first, findMaxGenerics.maxNumFloat(first, second, third));
+		assertEquals(first, findMaxGenerics.findMax(first, second, third));
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ class FindMaxGenericsTest {
 		Float first = 9.5f;
 		Float second = 10.4f;
 		Float third = 7.1f;
-		assertEquals(second, findMaxGenerics.maxNumFloat(first, second, third));
+		assertEquals(second, findMaxGenerics.findMax(first, second, third));
 	}
 	
 	@Test
@@ -58,13 +58,13 @@ class FindMaxGenericsTest {
 		Float first = 9.5f;
 		Float second = 5.4f;
 		Float third = 10.3f;
-		assertEquals(third, findMaxGenerics.maxNumFloat(first, second, third));
+		assertEquals(third, findMaxGenerics.findMax(first, second, third));
 	}
 	
 	@Test
 	public void givenFirstStringValueShouldReturnTrue() {
 		
-		String actual = findMaxGenerics.findMaximum("Peach", "Apple", "Banana");
+		String actual = findMaxGenerics.findMax("Peach", "Apple", "Banana");
 		String expected = "Peach";
 		assertEquals(expected, actual);
 	}
@@ -72,7 +72,7 @@ class FindMaxGenericsTest {
 	@Test
 	public void givenSecondStringValueShouldReturnTrue() {
 		
-		String actual = findMaxGenerics.findMaximum("Apple", "Peach", "Banana");
+		String actual = findMaxGenerics.findMax("Apple", "Peach", "Banana");
 		String expected = "Peach";
 		assertEquals(expected, actual);
 	}
@@ -80,7 +80,7 @@ class FindMaxGenericsTest {
 	@Test
 	public void givenThirdStringValueShouldReturnTrue() {
 		
-		String actual = findMaxGenerics.findMaximum("Banana", "Apple", "Peach");
+		String actual = findMaxGenerics.findMax("Banana", "Apple", "Peach");
 		String expected = "Peach";
 		assertEquals(expected, actual);
 	}
