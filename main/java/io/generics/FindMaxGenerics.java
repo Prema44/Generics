@@ -1,71 +1,47 @@
 package io.generics;
 
-public class FindMaxGenerics {
-	
-		/**
-		 * UC 1 Given 3 Integers find the maximum
-		 * @param first
-		 * @param second
-		 * @param third
-		 * @return
-		 */
-	
-		public Integer maxNumInt(Integer first, Integer second, Integer third) {
-			if(first.compareTo(second) > 0 && first.compareTo(third) > 0)
-				return first;
-			else if(second.compareTo(first) > 0 && second.compareTo(third) > 0)
-				return second;
-			else return third;
-		}	
-		
-		
-		/**
-		 * UC 2 Given 3 Floats find the maximum
-		 * @param first
-		 * @param second
-		 * @param third
-		 * @return
-		 */
-		public Float maxNumFloat(Float first, Float second, Float third) {
-			if(first.compareTo(second) > 0 && first.compareTo(third) > 0)
-				return first;
-			else if(second.compareTo(first) > 0 && second.compareTo(third) > 0)
-				return second;
-			else return third;
-		}
-		
-		/**
-		 * Usecase3
-		 * 
-		 * @param a
-		 * @param b
-		 * @param c
-		 * @return
-		 */
-		public String findMaximum(String a, String b, String c) {
-			String max;
-			if (a.compareTo(b) >= 0 && a.compareTo(c) >= 0) {
-				max = a;
-			} else if (b.compareTo(c) >= 0 && b.compareTo(a) >= 0) {
-				max = b;
-			} else {
-				max = c;
-			}
-			return max;
-		} 
-		
-		public < E extends Comparable  <E> > E findMax (E a, E b, E c)
-		{
-			E max;
-			if (a.compareTo(b) >= 0 && a.compareTo(c) >= 0) {
-				max = a;
-			} else if (b.compareTo(c) >= 0 && b.compareTo(a) >= 0) {
-				max = b;
-			} else {
-				max = c;
-			}
-			return max;
-		}
+public class FindMaxGenerics<x extends Comparable<x>> {
+	x first, second, third;
+
+	/**
+	 * Constructor
+	 * 
+	 * @param first
+	 * @param second
+	 * @param third
+	 */
+	public FindMaxGenerics(x first, x second, x third) {
+		this.first = first;
+		this.second = second;
+		this.third = third;
+	}
+
+	/**
+	 * UC 3 refactoring to use generic class
+	 * 
+	 * @return
+	 */
+	public x testMaximum() {
+		return testMaximum(first, second, third);
+	}
+
+	/**
+	 * UC 3 refactoring to use generic method
+	 * 
+	 * @param <E>
+	 * @param first
+	 * @param second
+	 * @param third
+	 * @return
+	 */
+	private static <E extends Comparable<E>> E testMaximum(E firstVar, E secondVar, E thirdVar) {
+		if (firstVar.compareTo(secondVar) > 0 && firstVar.compareTo(thirdVar) > 0)
+			return firstVar;
+		else if (secondVar.compareTo(firstVar) > 0 && secondVar.compareTo(thirdVar) > 0)
+			return secondVar;
+		else
+			return thirdVar;
+	}
 }
 	
 
